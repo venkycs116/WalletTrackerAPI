@@ -6,7 +6,7 @@ const walletRoutes = (app, fs) => {
     const apiPrefix = "/api/v1";
     const readFile = (callback, returnJson = false, req, filePath = dataPath, encoding = 'utf8') => {
         const username = req.headers.authorization;
-        if(username!=undefined && username!=='')
+        if(username!==undefined && username!=='')
         {
             filePath = './data/wallet_'+username+'.json';
         }
@@ -17,7 +17,7 @@ const walletRoutes = (app, fs) => {
 
     const writeFile = (fileData, callback, req, filePath = dataPath, encoding = 'utf8') => {
         const username = req.headers.authorization;
-        if(username!=undefined && username!=='')
+        if(username!==undefined && username!=='')
         {
             filePath = './data/wallet_'+username+'.json';
         }
@@ -32,7 +32,7 @@ const walletRoutes = (app, fs) => {
             let transactions = [];
             if(data.transactions.length!==0)
             {
-                transactions = data.transactions.filter(i=>i.isDelete==false);
+                transactions = data.transactions.filter(i=>i.isDelete===false);
             }
             let wallet = {
                 walletBalance : data.walletBalance,
@@ -48,7 +48,7 @@ const walletRoutes = (app, fs) => {
         readFile(data => {
             const walletId = req.params["id"];
             // get the wallet
-            let wallet = data.transactions.filter(i=>i.id==walletId.toString())[0];
+            let wallet = data.transactions.filter(i=>i.id===walletId.toString())[0];
             res.status(200).send(wallet);
         },
             true,req);
@@ -86,8 +86,8 @@ const walletRoutes = (app, fs) => {
             var input= req.body;
             input.id=walletId;
             input.isDelete=false;
-            let currentdata = data.transactions.filter(i=>i.id==walletId.toString())[0];
-            var balcal=data.transactions.filter(i=>i.isDelete==false);
+            let currentdata = data.transactions.filter(i=>i.id===walletId.toString())[0];
+            var balcal=data.transactions.filter(i=>i.isDelete===false);
             for(let k=0;k<balcal.length;k++)
             {
                 totalincome +=balcal[k].income;
@@ -116,7 +116,7 @@ const walletRoutes = (app, fs) => {
         readFile(data => {
             // delete the wallet
             const walletId = req.params["id"];
-            let input = data.transactions.filter(i=>i.id==walletId.toString())[0];
+            let input = data.transactions.filter(i=>i.id===walletId.toString())[0];
             input.isDelete = true;
             if(input.expense!==0){
                 data.walletBalance= data.walletBalance + parseInt(input.expense);
