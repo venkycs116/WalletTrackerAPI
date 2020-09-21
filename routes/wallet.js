@@ -116,7 +116,7 @@ const walletRoutes = (app, fs) => {
         readFile(data => {
             // delete the wallet
             const walletId = req.params["id"];
-            let input = data.transactions.filter(i=>i.id===parseInt(walletId));
+            let input = data.transactions.filter(i=>i.id===parseInt(walletId))[0];
             input.isDelete = true;
             if(input.expense!==0){
                 data.walletBalance= data.walletBalance + parseInt(input.expense);
