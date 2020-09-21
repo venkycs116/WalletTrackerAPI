@@ -18,9 +18,9 @@ const appRouter = (app, fs) => {
           }
           else{
             writeFile(fileData, () => {
-              res.status(200).send('wallet added Successfully');
           },filePath);
           }
+          res.status(200).send('LoggedIn Successfully');
     });
     walletRoutes(app, fs);
 };
