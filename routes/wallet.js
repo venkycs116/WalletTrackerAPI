@@ -84,7 +84,7 @@ const walletRoutes = (app, fs) => {
             // update the wallet
             const walletId = req.params["id"];
             var input= req.body;
-            input.id=walletId;
+            input.id=parseInt(walletId);
             input.isDelete=false;
             let currentdata = data.transactions.filter(i=>i.id===parseInt(walletId))[0];
             var balcal=data.transactions.filter(i=>i.isDelete===false);
