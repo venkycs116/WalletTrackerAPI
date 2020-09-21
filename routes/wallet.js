@@ -12,6 +12,7 @@ const walletRoutes = (app, fs) => {
         }
         data = jsonfile.readFileSync(filePath);
         data = JSON.parse(data);
+        data = JSON.parse(data);
         callback(data);
     };
 
