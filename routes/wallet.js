@@ -118,7 +118,6 @@ const walletRoutes = (app, fs) => {
             const walletId = req.params["id"];
             let input = data.transactions.filter(i=>i.id===parseInt(walletId));
             input.isDelete = true;
-            g
             if(input.expense!==0){
                 data.walletBalance= data.walletBalance + parseInt(input.expense);
              }
