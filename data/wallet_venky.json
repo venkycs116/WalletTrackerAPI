@@ -1,0 +1,1 @@
+"{\n  \"walletBalance\": 10,\n  \"transactions\": [\n    {\n      \"description\": \"test\",\n      \"date\": \"2020-09-21\",\n      \"income\": 10,\n      \"expense\": 0,\n      \"id\": 1,\n      \"isDelete\": false\n    }\n  ]\n}"
